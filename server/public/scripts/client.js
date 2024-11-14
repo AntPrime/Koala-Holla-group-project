@@ -1,4 +1,5 @@
 console.log( 'js' );
+
 getKoalas()
 
 function getKoalas(){
@@ -40,8 +41,8 @@ function addKoala(event){
       console.log("koalas POST", response.data);
       getKoalas()
     }).catch(function(error) {
-      console.log('error in song post', error); 
-      alert('Error adding koala. Please try again later.')       
+      console.log('error in Koala post', error); 
+      alert('Error adding koala. I dare you to try again later.')       
     });
 }
 
@@ -50,10 +51,10 @@ function renderKoalas(listOfKoalas) {
   const koalaTableBody = document.getElementById('viewKoalas');
 
   // Empty previous data
-  //koalaTableBody.innerHTML = '';
+ // koalaTableBody.innerHTML = '';
 
   // Add all artists to table
-  for(let koala of listOfKoalas) {
+  for (let koala of listOfKoalas) {
     // let favButton = 'Favorite Me';
     // if( artist.favorite ){
     //   favButton = 'Unfave Me';
