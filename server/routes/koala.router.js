@@ -11,8 +11,9 @@ koalaRouter.get( '/', ( req, res )=>{
     // assemble query
     const queryText = 'SELECT * FROM koalas';
     // run pool.query
-    pool.query( queryText ).then( ( results )=>{
+    pool.query( queryText).then( ( results )=>{
         // return results.rows
+        console.log("results", results.rows)
         res.send( results.rows );
     }).catch( ( err )=>{
         // handle any errors
