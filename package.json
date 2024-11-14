@@ -10,6 +10,7 @@
   "author": "@devjana",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.7",
     "express": "^4.16.4",
     "pg": "^8.13.1"
   }

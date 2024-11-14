@@ -1,5 +1,5 @@
 console.log( 'js' );
-
+getKoalas()
 
 function getKoalas(){
   console.log( 'in getKoalas' );
@@ -18,7 +18,7 @@ function getKoalas(){
 function addKoala(event){
   console.log( 'in addKoala' );
   // axios call to server to get koalas
-  event.preventDefault();
+  // event.preventDefault();
 
     // Get info to send to the server
     const newKoala = {
@@ -61,7 +61,7 @@ function renderKoalas(listOfKoalas) {
    koalaTableBody.innerHTML += (`
       <tr>
         <td>${koala.name}</td>
-        <td></td?
+        <td></td>
         <td></button></td>
       </tr>`
     );
