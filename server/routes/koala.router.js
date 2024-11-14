@@ -6,7 +6,7 @@ const pool = require('../modules/pool')
 
 // GET
 
-router.get( '/', ( req, res )=>{
+koalaRouter.get( '/', ( req, res )=>{
     console.log( '/koalas GET' );
     // assemble query
     const queryText = 'SELECT * FROM koalas';
@@ -22,21 +22,21 @@ router.get( '/', ( req, res )=>{
 })
 // POST
 
-// router.post( '/', ( req, res )=>{
-//     console.log( 'in /artist POST:', req.body );
-//         // assemble query
-//         const queryText = `INSERT into "artists" ( name, birthdate ) VALUES ( $1, $2 );`;
-//         const values = [ req.body.name, req.body.birthdate ];
-//         // run pool.query
-//         pool.query( queryText, values ).then( ( results )=>{
-//             // return results.rows
-//             res.sendStatus( 201 ); // "CREATED"
-//         }).catch( ( err )=>{
-//             // handle any errors
-//             console.log( err );
-//             res.sendStatus( 400 );
-//         })
-// })
+koalaRouter.post( '/', ( req, res )=>{
+    console.log( 'in /koalas POST:', req.body );
+        // assemble query
+        const queryText = `INSERT INTO "koalas" ("name", "favorite_color", "age", "ready_to_transfer", "notes") VALUES ($1, $2, $3, $4, $5 );`;
+        const values = [ req.body.name, req.body.favorite_color,req.body.age,req.body.ready_to_transfer,req.body.notes ];
+        // run pool.query
+        pool.query( queryText, values ).then( ( results )=>{
+            // return results.rows
+            res.sendStatus( 201 ); // "CREATED"
+        }).catch( ( err )=>{
+            // handle any errors
+            console.log( err );
+            res.sendStatus( 400 );
+        })
+})
 
 // PUT
 // router.put( '/', ( req, res )=>{
