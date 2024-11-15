@@ -11,7 +11,7 @@ const koalasList = [
     name: "NAME",
     age: 54,
    favoriteColor:  "RED",
-   readyToTransfer: true,
+   readyToTransfer: Boolean,
    notes: "BLAHBLAHBLAH"
   }
 ]

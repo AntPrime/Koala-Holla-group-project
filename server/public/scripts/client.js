@@ -21,12 +21,12 @@ function addKoala(event){
   // axios call to server to get koalas
    event.preventDefault();
 
-    // Get info to send to the server
+    // Get info to send to the server - had to update to match the DB
     const newKoala = {
       name: document.getElementById('nameIn').value,
       age: Number(document.getElementById('ageIn').value),
-      favoriteColor:  document.getElementById('colorIn').value,
-      readyToTransfer: document.getElementById('readyForTransferIn').value,
+      favorite_color:  document.getElementById('colorIn').value,
+      ready_to_transfer: document.getElementById('readyForTransferIn').value,
       notes: document.getElementById('notesIn').value
      }
 
@@ -51,7 +51,7 @@ function renderKoalas(listOfKoalas) {
   const koalaTableBody = document.getElementById('viewKoalas');
 
   // Empty previous data
- // koalaTableBody.innerHTML = '';
+  koalaTableBody.innerHTML = '';
 
   // Add all artists to table
   // updated the function to end the } at the end
@@ -71,4 +71,8 @@ function renderKoalas(listOfKoalas) {
       </tr>`
     );
   }
+}
+// creating function to mark ready
+function toggleReadyToTransfer(){
+  console.log("Activated Ready to Transfer")
 }
