@@ -40,21 +40,21 @@ koalaRouter.post( '/', ( req, res )=>{
 })
 
 // PUT
-// router.put( '/', ( req, res )=>{
-//     console.log( '/artists PUT:', req.body );
-//     const queryText = `UPDATE artists SET favorite=$1 WHERE id=$2;`;
-//     const values = [ req.body.newFavorite, req.body.id ];
-//     // run pool.query
-//     pool.query( queryText, values ).then( ( results )=>{
-//         res.sendStatus( 200 ); // "OK"
-//     }).catch( ( err )=>{
-//         // handle any errors
-//         console.log( err );
-//         res.sendStatus( 400 );
-//     })
-// // PUT
-// // UPDATE artists SET favorite=true WHERE id=5;
-// })
+koalaRouter.put( '/', ( req, res )=>{
+    console.log( '/Koalas PUT:', req.body );
+    const queryText = `UPDATE koalas SET ready_to_transfer=$1 WHERE id=$2;`;
+    const values = [  req.body.newReady_to_transfer , req.body.id  ];
+    // run pool.query
+    pool.query( queryText, values ).then( ( results )=>{
+        res.sendStatus( 200 ); // "OK"
+    }).catch( ( err )=>{
+        // handle any errors
+        console.log( err );
+        res.sendStatus( 400 );
+    })
+// PUT
+// UPDATE artists SET favorite=true WHERE id=5;
+})
 
 // DELETE
 koalaRouter.delete( '/', ( req, res )=>{
@@ -64,6 +64,7 @@ koalaRouter.delete( '/', ( req, res )=>{
         const values = [ req.body.id ];
         // run pool.query
         pool.query( queryText, values ).then( ( results )=>{
+            console.log("READY and ID", values)
             res.sendStatus( 200 ); // "OK"
         }).catch( ( err )=>{
             // handle any errors

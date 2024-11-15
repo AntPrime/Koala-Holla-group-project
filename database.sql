@@ -7,4 +7,9 @@ CREATE TABLE "koalas" (
 "notes" varchar(80)
 );
 INSERT INTO "koalas" ("name", "favorite_color", "age", "ready_to_transfer", "notes")
-VALUES
+VALUES;
+
+
+DELETE FROM koalas WHERE id=$1;
+INSERT INTO "koalas" ("name", "favorite_color", "age", "ready_to_transfer", "notes") VALUES ($1, $2, $3, $4, $5 );
+SELECT * FROM koalas

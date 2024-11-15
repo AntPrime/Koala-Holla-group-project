@@ -97,8 +97,8 @@ function toggleReadyToTransfer( id, ready_to_transfer){
     console.log(response.data);
     getKoalas();
   }).catch(function(error) {
-    console.log('error in artist update', error); 
-    alert('Error updating artist. Please try again later.')       
+    console.log('error in Koalas update', error); 
+    alert('Error updating Koala. Please try again later.')       
   });
 }
 
