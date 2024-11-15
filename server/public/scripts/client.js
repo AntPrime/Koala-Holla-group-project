@@ -59,7 +59,7 @@ function renderKoalas(listOfKoalas) {
     // let favButton = 'Favorite Me';
     // if( artist.favorite ){
     //   favButton = 'Unfave Me';
-  
+  let transferButton = 'Ready to Transfer'
    koalaTableBody.innerHTML += (`
       <tr>
         <td>${koala.name}</td>
@@ -75,9 +75,30 @@ function renderKoalas(listOfKoalas) {
 }
 
 // creating function to mark ready
-function toggleReadyToTransfer(){
+function toggleReadyToTransfer( id, ready_to_transfer){
   console.log("Activated Ready to Transfer")
+  const koalaToSend = {
+    id: id,
+    newReady_to_transfer: true
+  };
+  if( ready_to_transfer ){
+    koalaToSend.newReady_to_transfer = false;
+  }
+
+  // Send the new artist to the server as data
+  axios({
+    method: 'PUT',
+    url: '/koalas',
+    data: koalaToSend
+  }).then(function(response) {
+    console.log(response.data);
+    getKoalas();
+  }).catch(function(error) {
+    console.log('error in artist update', error); 
+    alert('Error updating artist. Please try again later.')       
+  });
 }
+
 
 function deleteKoalas( id ) {
   console.log("deleting Koala")
