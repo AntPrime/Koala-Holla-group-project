@@ -77,7 +77,7 @@ function renderKoalas(listOfKoalas) {
   }
 }
 
-// creating function to mark ready
+// parameters  will be called in the render function 
 function toggleReadyToTransfer( id, ready_to_transfer){
   console.log("Activated Ready to Transfer")
   const koalaToSend = {

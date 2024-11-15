@@ -43,6 +43,7 @@ koalaRouter.post( '/', ( req, res )=>{
 koalaRouter.put( '/', ( req, res )=>{
     console.log( '/Koalas PUT:', req.body );
     const queryText = `UPDATE koalas SET ready_to_transfer=$1 WHERE id=$2;`;
+    // this is the same newReady_To_Tramsfer in client PUT 
     const values = [  req.body.newReady_to_transfer , req.body.id  ];
     // run pool.query
     pool.query( queryText, values ).then( ( results )=>{
