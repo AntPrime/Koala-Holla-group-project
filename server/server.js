@@ -7,9 +7,10 @@ app.use(express.json());
 app.use(express.static('server/public'));
 
 const koalasList = [
-  {name: "NAME",
+  {
+    name: "NAME",
+    age: 54,
    favoriteColor:  "RED",
-   age: 54,
    readyToTransfer: true,
    notes: "BLAHBLAHBLAH"
   }

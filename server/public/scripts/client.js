@@ -19,13 +19,13 @@ function getKoalas(){
 function addKoala(event){
   console.log( 'in addKoala' );
   // axios call to server to get koalas
-  // event.preventDefault();
+   event.preventDefault();
 
     // Get info to send to the server
     const newKoala = {
       name: document.getElementById('nameIn').value,
-      favoriteColor:  document.getElementById('colorIn').value,
       age: Number(document.getElementById('ageIn').value),
+      favoriteColor:  document.getElementById('colorIn').value,
       readyToTransfer: document.getElementById('readyForTransferIn').value,
       notes: document.getElementById('notesIn').value
      }
@@ -54,17 +54,21 @@ function renderKoalas(listOfKoalas) {
  // koalaTableBody.innerHTML = '';
 
   // Add all artists to table
+  // updated the function to end the } at the end
   for (let koala of listOfKoalas) {
     // let favButton = 'Favorite Me';
     // if( artist.favorite ){
     //   favButton = 'Unfave Me';
-    }
+  
    koalaTableBody.innerHTML += (`
       <tr>
         <td>${koala.name}</td>
-        <td></td>
-        <td></button></td>
+        <td>${koala.age}</td>
+        <td>${koala.favorite_color}</td>
+        <td>${koala.ready_to_transfer}</td>
+        <td><button onClick="toggleReadyToTransfer()">Ready for Transfer</td>
+        <td>${koala.notes}</td>
       </tr>`
     );
   }
-
+}
