@@ -60,13 +60,16 @@ function renderKoalas(listOfKoalas) {
     // if( artist.favorite ){
     //   favButton = 'Unfave Me';
   let transferButton = 'Ready to Transfer'
+  if (koala.ready_to_transfer) {
+    transferButton = "Transferred"
+  }
    koalaTableBody.innerHTML += (`
       <tr>
         <td>${koala.name}</td>
         <td>${koala.age}</td>
         <td>${koala.favorite_color}</td>
         <td>${koala.ready_to_transfer}</td>
-        <td><button onClick="toggleReadyToTransfer()">Ready for Transfer</td>
+        <td><button onClick="toggleReadyToTransfer(${koala.id},${koala.ready_to_transfer})">${transferButton}</td>
         <td>${koala.notes}</td>
         <td><button onclick="deleteKoalas(${koala.id})">DELETE</td>
       </tr>`
