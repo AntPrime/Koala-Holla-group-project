@@ -68,11 +68,33 @@ function renderKoalas(listOfKoalas) {
         <td>${koala.ready_to_transfer}</td>
         <td><button onClick="toggleReadyToTransfer()">Ready for Transfer</td>
         <td>${koala.notes}</td>
+        <td><button onclick="deleteKoalas(${koala.id})">DELETE</td>
       </tr>`
     );
   }
 }
+
 // creating function to mark ready
 function toggleReadyToTransfer(){
   console.log("Activated Ready to Transfer")
+}
+
+function deleteKoalas( id ) {
+  console.log("deleting Koala")
+  const koalaToSend = {
+    id: id
+  };
+
+  // Send the new artist to the server as data
+  axios({
+    method: 'DELETE',
+    url: '/koalas',
+    data: koalaToSend
+  }).then(function(response) {
+    console.log(response.data);
+    getKoalas();
+  }).catch(function(error) {
+    console.log('error in artist delete', error); 
+    alert('Error deleting artist. Please try again later.')       
+  });
 }

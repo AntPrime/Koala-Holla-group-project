@@ -57,19 +57,19 @@ koalaRouter.post( '/', ( req, res )=>{
 // })
 
 // DELETE
-// router.delete( '/', ( req, res )=>{
-//     console.log( 'in /artist DELETE:', req.body );
-//         // assemble query
-//         const queryText = `DELETE FROM artists WHERE id=$1;`;
-//         const values = [ req.body.id ];
-//         // run pool.query
-//         pool.query( queryText, values ).then( ( results )=>{
-//             res.sendStatus( 200 ); // "OK"
-//         }).catch( ( err )=>{
-//             // handle any errors
-//             console.log( err );
-//             res.sendStatus( 400 );
-//         })
-// })
+koalaRouter.delete( '/', ( req, res )=>{
+    console.log( 'in /koalas DELETE:', req.body );
+        // assemble query
+        const queryText = `DELETE FROM koalas WHERE id=$1;`;
+        const values = [ req.body.id ];
+        // run pool.query
+        pool.query( queryText, values ).then( ( results )=>{
+            res.sendStatus( 200 ); // "OK"
+        }).catch( ( err )=>{
+            // handle any errors
+            console.log( err );
+            res.sendStatus( 400 );
+        })
+})
 
 module.exports = koalaRouter;
